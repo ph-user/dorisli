@@ -1,104 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Xinzhi Li</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#333333",
-                        secondary: "#666666"
-                    },
-                    fontFamily: {
-                        'playfair': ['"Playfair Display"', 'serif'],
-                        'raleway': ['Raleway', 'sans-serif']
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#333333",
+              secondary: "#666666",
+            },
+            fontFamily: {
+              playfair: ['"Playfair Display"', "serif"],
+              raleway: ["Raleway", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <style>
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #ffffff;
-        }
-        .playfair {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        /* Dropdown menu */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-            z-index: 1;
-            text-align: left;
-        }
-        
-        .dropdown-content a {
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+      body {
+        font-family: "Raleway", sans-serif;
+        background-color: #ffffff;
+      }
+      .playfair {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Dropdown menu */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        text-align: left;
+      }
+
+      .dropdown-content a {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
     </style>
-</head>
-<body class="min-h-screen flex flex-col">
+  </head>
+  <body class="min-h-screen flex flex-col">
     <!-- Header/Navigation -->
     <header class="py-4 px-6 md:px-12 border-b border-gray-200">
-        <nav class="flex justify-center">
-            <ul class="flex space-x-8 md:space-x-12 font-raleway text-sm uppercase tracking-wider text-primary">
-                <li><a href="index.html" class="hover:text-secondary transition-colors duration-300">Home</a></li>
-                <li><a href="about.html" class="hover:text-secondary transition-colors duration-300">About</a></li>
-                <li class="dropdown">
-                    <a href="gallery.html" class="font-medium flex items-center">
-                        Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </a>
-                    <div class="dropdown-content">
-                        <a href="series1.html" class="text-primary hover:text-secondary transition-colors duration-300">Eyes (2021)</a>
-                        <a href="series2.html" class="text-primary hover:text-secondary transition-colors duration-300">Inside Wombs (2021)</a>
-                        <a href="series3.html" class="text-primary hover:text-secondary transition-colors duration-300">Entrance (2022)</a>
-                        <a href="series4.html" class="text-primary hover:text-secondary transition-colors duration-300">Blackhole (2022)</a>
-                        <a href="series5.html" class="text-primary hover:text-secondary transition-colors duration-300">With You (2022)</a>
-                        <a href="series6.html" class="text-primary hover:text-secondary transition-colors duration-300">Transforming (2024)</a>
-                    </div>
-                </li>
-                <li><a href="bio.html" class="hover:text-secondary transition-colors duration-300">Bio</a></li>
-                <li><a href="contact.html" class="hover:text-secondary transition-colors duration-300">Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="flex justify-center">
+        <ul
+          class="flex space-x-8 md:space-x-12 font-raleway text-sm uppercase tracking-wider text-primary"
+        >
+          <li>
+            <a
+              href="index.html"
+              class="hover:text-secondary transition-colors duration-300"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="hover:text-secondary transition-colors duration-300"
+              >About</a
+            >
+          </li>
+          <li class="dropdown">
+            <a href="gallery.html" class="font-medium flex items-center">
+              Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </a>
+            <div class="dropdown-content">
+              <a
+                href="series1.html"
+                class="text-primary hover:text-secondary transition-colors duration-300"
+                >Eyes (2021)</a
+              >
+              <a
+                href="series2.html"
+                class="text-primary hover:text-secondary transition-colors duration-300"
+                >Inside Wombs (2021)</a
+              >
+              <a
+                href="series3.html"
+                class="text-primary hover:text-secondary transition-colors duration-300"
+                >Entrance (2022)</a
+              >
+              <a
+                href="series4.html"
+                class="text-primary hover:text-secondary transition-colors duration-300"
+                >Blackhole (2022)</a
+              >
+              <a
+                href="series5.html"
+                class="text-primary hover:text-secondary transition-colors duration-300"
+                >With You (2022)</a
+              >
+              <a
+                href="series6.html"
+                class="text-primary hover:text-secondary transition-colors duration-300"
+                >Transforming (2024)</a
+              >
+            </div>
+          </li>
+          <li>
+            <a
+              href="bio.html"
+              class="hover:text-secondary transition-colors duration-300"
+              >Bio</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="hover:text-secondary transition-colors duration-300"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Main Content -->
     <main class="flex-grow px-6 md:px-12 py-12 max-w-3xl mx-auto">
-        <h1 class="text-3xl md:text-4xl font-medium playfair mb-8 text-primary text-center">Contact</h1>
-        
-        <div class="space-y-8">
-            <div class="space-y-4 text-secondary text-center">
-                <p><strong>Xinzhi (Doris) Li</strong></p>
-                <p>Email: <a href="mailto:XinzhiLi2000@outlook.com" class="hover:underline">XinzhiLi2000@outlook.com</a></p>
-                <p>Instagram: <a href="https://www.instagram.com/dorisssliart/?igsh=amcxZWYxY210eXhn&utm_source=qr#" target="_blank" class="hover:underline">@Dorisssliart</a></p>
-            </div>
-            
-            <!--
+      <h1
+        class="text-3xl md:text-4xl font-medium playfair mb-8 text-primary text-center"
+      >
+        Contact
+      </h1>
+
+      <div class="space-y-8">
+        <div class="space-y-4 text-secondary text-center">
+          <p><strong>Xinzhi (Doris) Li</strong></p>
+          <p>
+            Email:
+            <a href="mailto:XinzhiLi2000@outlook.com" class="hover:underline"
+              >XinzhiLi2000@outlook.com</a
+            >
+          </p>
+          <p>
+            Instagram:
+            <a
+              href="https://www.instagram.com/dorisssliart/?igsh=amcxZWYxY210eXhn&utm_source=qr#"
+              target="_blank"
+              class="hover:underline"
+              >@Dorisssliart</a
+            >
+          </p>
+        </div>
+
+        <!--
             <form class="space-y-6"> 
                 <div>
                     <label for="name" class="block text-sm font-medium text-primary mb-1">Name</label>
@@ -125,17 +198,30 @@
                 </div>
             </form>
             -->
-        </div>
+      </div>
     </main>
 
     <!-- Footer -->
-    <footer class="py-6 px-6 md:px-12 border-t border-gray-200 flex justify-between items-center">
-        <p class="text-sm text-secondary">Copyright © Xinzhi Li 2025</p>
-        <div>
-            <a href="https://www.instagram.com/dorisssliart/?igsh=amcxZWYxY210eXhn&utm_source=qr#" target="_blank" class="text-secondary hover:text-primary transition-colors duration-300">
-                <i class="fab fa-instagram text-xl"></i>
-            </a>
-        </div>
+    <footer
+      class="py-6 px-6 md:px-12 border-t border-gray-200 flex justify-between items-center"
+    >
+      <p class="text-sm text-secondary">Copyright © Xinzhi Li 2025</p>
+      <div>
+        <a
+          href="https://www.instagram.com/dorisssliart/?igsh=amcxZWYxY210eXhn&utm_source=qr#"
+          target="_blank"
+          class="text-secondary hover:text-primary transition-colors duration-300"
+        >
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+      </div>
     </footer>
-</body>
+    <script>
+      document.addEventListener("contextmenu", function (e) {
+        if (e.target.tagName === "IMG") {
+          e.preventDefault();
+        }
+      });
+    </script>
+  </body>
 </html>
