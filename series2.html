@@ -15,8 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -38,7 +36,6 @@
         font-family: "Raleway", sans-serif;
         background-color: #ffffff;
       }
-
       .playfair {
         font-family: "Playfair Display", serif;
       }
@@ -73,25 +70,20 @@
       .gallery-item {
         cursor: pointer;
         transition: opacity 0.3s ease;
-        margin-bottom: 12px;
+        margin-bottom: 30px;
+        display: inline-block;
+        margin-right: 30px;
+        vertical-align: top;
       }
 
       .gallery-item:hover {
         opacity: 0.9;
       }
 
-      /* Masonry grid */
-      .masonry-grid {
-        display: flex;
+      /* Gallery container */
+      .gallery-container {
         width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .masonry-grid-column {
-        padding-left: 6px;
-        padding-right: 6px;
-        background-clip: padding-box;
+        text-align: center;
       }
 
       /* Lightbox */
@@ -183,7 +175,6 @@
       }
     </style>
   </head>
-
   <body class="min-h-screen flex flex-col">
     <!-- Header/Navigation -->
     <header class="py-4 px-6 md:px-12 border-b border-pink-700">
@@ -268,23 +259,11 @@
         Inside Wombs (2021)
       </h1>
       <p class="text-secondary mb-8 max-w-3xl text-center mx-auto">
-        My personal experiences related to the mother and child theme inspired
-        these works. I have experienced accompanying my mother during the loss
-        of her twenty-week unborn child during my high school period, being
-        present for my mother’s childbirth in the operating room, as well as
-        being the one who cut the umbilical cord for my younger sister. In these
-        works, I imagine myself inside a womb-like interior, floating in a
-        watery space surrounded by veins, blood, and amniotic fluid. I want to
-        reexperience the bonding with my mother and being inside my mother’s
-        body and harbour. The womb-like interior spaces also arouse ambiguous
-        feelings of comfort and fear. I also explore the contradiction between
-        mother and foetus. Investigating how pregnant women feel disconnected
-        from their bodies and the development of a new relationship with an
-        unfamiliar entity
+This series of works attempts to liken the body to a container, using it as a medium to express and release emotions. The works are presented in a feminine and fragile form, yet they possess a powerful and intense vitality, showcasing the complexity and diversity of life. The recurring imagery of the circle in the works symbolises the origin of life, reproduction and connection. Through these works, I attempt to capture the fluidity of emotions, the resilience of the human spirit, and the cyclical nature of existence.
       </p>
 
-      <!-- Masonry Gallery Grid -->
-      <div class="masonry-grid" id="masonry-grid">
+      <!-- Gallery Container -->
+      <div class="gallery-container" id="gallery-container">
         <!-- Gallery items will be inserted here by JavaScript -->
       </div>
     </main>
@@ -327,64 +306,57 @@
 
     <script>
       // Gallery images array - replace with your actual image data
-      const galleryImages = [
-        {
-          src: "asset/20240718182744.jpg",
-          alt: "Inside Wombs (2021)",
-          title: "Install View",
-          details: "RMIT, Melbourne",
-          width: 900,
-          height: 600,
-        },
-        {
-          src: "asset/20240718182750.jpg",
-          alt: "Inside Wombs (2021)",
-          title: "Inside Wombs (2021)",
-          details: "Watercolor on paper, 594 X 420mm",
-          width: 600,
-          height: 900,
-        },
-        {
-          src: "asset/20240718182756.jpg",
-          alt: "Inside Wombs (2021)",
-          title: "Inside Wombs (2021)",
-          details: "Watercolor on paper, 594 X 420mm",
-          width: 600,
-          height: 900,
-        },
-        {
-          src: "asset/20240718182804.jpg",
-          alt: "Inside Wombs (2021)",
-          title: "Inside Wombs (2021)",
-          details: "Watercolor on paper, 594 X 420mm",
-          width: 600,
-          height: 900,
-        },
-        {
-          src: "asset/20240718182808.jpg",
-          alt: "Inside Wombs (2021)",
-          title: "Inside Wombs (2021)",
-          details: "Watercolor on paper, 594 X 420mm",
-          width: 600,
-          height: 900,
-        },
-        {
-          src: "asset/20240718182812.jpg",
-          alt: "Inside Wombs (2021)",
-          title: "Inside Wombs (2021)",
-          details: "Watercolor on paper, 594 X 420mm",
-          width: 600,
-          height: 900,
-        },
-        {
-          src: "asset/20240718182756.jpg",
-          alt: "Inside Wombs (2021)",
-          title: "Inside Wombs (2021)",
-          details: "Watercolor on paper, 594 X 420mm",
-          width: 600,
-          height: 900,
-        },
-      ];
+const galleryImages = [
+        {
+          src: "asset/20240718182744.jpg",
+          alt: "Inside Wombs (2021)",
+          title: "Install View",
+          details: "RMIT, Melbourne",
+
+        },
+        {
+          src: "asset/20240718182750.jpg",
+          alt: "Inside Wombs (2021)",
+          title: "Inside Wombs (2021)",
+          details: "Watercolor on paper, 594 X 420mm",
+
+        },
+        {
+          src: "asset/20240718182756.jpg",
+          alt: "Inside Wombs (2021)",
+          title: "Inside Wombs (2021)",
+          details: "Watercolor on paper, 594 X 420mm",
+
+        },
+        {
+          src: "asset/20240718182804.jpg",
+          alt: "Inside Wombs (2021)",
+          title: "Inside Wombs (2021)",
+          details: "Watercolor on paper, 594 X 420mm",
+
+        },
+        {
+          src: "asset/20240718182808.jpg",
+          alt: "Inside Wombs (2021)",
+          title: "Inside Wombs (2021)",
+          details: "Watercolor on paper, 594 X 420mm",
+
+        },
+        {
+          src: "asset/20240718182812.jpg",
+          alt: "Inside Wombs (2021)",
+          title: "Inside Wombs (2021)",
+          details: "Watercolor on paper, 594 X 420mm",
+
+        },
+        {
+          src: "asset/20240718182756.jpg",
+          alt: "Inside Wombs (2021)",
+          title: "Inside Wombs (2021)",
+          details: "Watercolor on paper, 594 X 420mm",
+
+        },
+      ];
 
       let currentImageIndex = 0;
       let currentZoom = 1;
@@ -395,79 +367,42 @@
       const lightboxDetails = document.getElementById("lightbox-details");
       const zoomIndicator = document.getElementById("zoom-indicator");
       const zoomLevelDisplay = document.getElementById("zoom-level");
-      const masonryGrid = document.getElementById("masonry-grid");
+      const galleryContainer = document.getElementById("gallery-container");
 
-      // Calculate the maximum width for thumbnails while maintaining aspect ratio
-      function calculateThumbnailSize(image, maxWidth) {
-        const aspectRatio = image.width / image.height;
-        const thumbnailWidth = Math.min(maxWidth, image.width);
-        const thumbnailHeight = thumbnailWidth / aspectRatio;
-
-        return {
-          width: thumbnailWidth,
-          height: thumbnailHeight,
-        };
-      }
-
-      // Create gallery items with proper sizing
+      // Create gallery items with natural sizes
       function createGalleryItems() {
-        // Determine the number of columns based on screen width
-        let numColumns;
-        const screenWidth = window.innerWidth;
-
-        if (screenWidth < 640) {
-          numColumns = 2; // Mobile: 2 columns
-        } else if (screenWidth < 1024) {
-          numColumns = 3; // Tablet: 3 columns
-        } else {
-          numColumns = 4; // Desktop: 4 columns
-        }
-
-        // Create column divs
-        for (let i = 0; i < numColumns; i++) {
-          const column = document.createElement("div");
-          column.className = "masonry-grid-column";
-          column.style.width = `${100 / numColumns}%`;
-          masonryGrid.appendChild(column);
-        }
-
-        const columns = document.querySelectorAll(".masonry-grid-column");
-        const maxThumbnailWidth = 300; // Maximum width for thumbnails
-
-        // Distribute images among columns
+        // Clear the container
+        galleryContainer.innerHTML = '';
+        
+        // Create gallery items
         galleryImages.forEach((image, index) => {
-          const thumbnail = calculateThumbnailSize(image, maxThumbnailWidth);
-
           const item = document.createElement("div");
           item.className = "gallery-item";
           item.onclick = () => openLightbox(index);
-
+          
           const img = document.createElement("img");
           img.src = image.src;
           img.alt = image.alt;
-          img.className = "w-full shadow-md";
-          img.style.width = `${thumbnail.width}px`;
-          img.style.height = `${thumbnail.height}px`;
-
+          img.className = "shadow-md";
+          
+          // Set a reasonable display size while maintaining aspect ratio
+          img.style.height = "400px"; // Fixed height
+          img.style.width = "auto"; // Width will adjust based on aspect ratio
+          
           item.appendChild(img);
-
-          // Add to the shortest column
-          const targetColumn = index % columns.length;
-          columns[targetColumn].appendChild(item);
+          galleryContainer.appendChild(item);
+          
+          // Load the image to get its natural dimensions
+          img.onload = function() {
+            // Store the natural dimensions for the lightbox
+            image.naturalWidth = this.naturalWidth;
+            image.naturalHeight = this.naturalHeight;
+          };
         });
       }
 
       // Initialize gallery
       document.addEventListener("DOMContentLoaded", function () {
-        createGalleryItems();
-      });
-
-      // Handle window resize
-      window.addEventListener("resize", function () {
-        // Clear existing gallery
-        masonryGrid.innerHTML = "";
-
-        // Recreate gallery with new column count
         createGalleryItems();
       });
 

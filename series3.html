@@ -15,8 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -72,25 +70,20 @@
       .gallery-item {
         cursor: pointer;
         transition: opacity 0.3s ease;
-        margin-bottom: 12px;
+        margin-bottom: 30px;
+        display: inline-block;
+        margin-right: 30px;
+        vertical-align: top;
       }
 
       .gallery-item:hover {
         opacity: 0.9;
       }
 
-      /* Masonry grid */
-      .masonry-grid {
-        display: flex;
+      /* Gallery container */
+      .gallery-container {
         width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .masonry-grid-column {
-        padding-left: 6px;
-        padding-right: 6px;
-        background-clip: padding-box;
+        text-align: center;
       }
 
       /* Lightbox */
@@ -265,10 +258,12 @@
       >
         Entrance (2022)
       </h1>
-      <p class="text-secondary mb-8 max-w-3xl"></p>
+      <p class="text-secondary mb-8 max-w-3xl text-center mx-auto">
 
-      <!-- Masonry Gallery Grid -->
-      <div class="masonry-grid" id="masonry-grid">
+      </p>
+
+      <!-- Gallery Container -->
+      <div class="gallery-container" id="gallery-container">
         <!-- Gallery items will be inserted here by JavaScript -->
       </div>
     </main>
@@ -317,90 +312,80 @@
           alt: "Entrance (2022)",
           title: "Install View",
           details: "Site8-Gallery, RMIT, Melbourne",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240718182212.jpg",
           alt: "EEntrance (2022)",
           title: "Install View",
           details: "Site8-Gallery, RMIT, Melbourne",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240718182224.jpg",
           alt: "Entrance (2022)",
           title: "Install View",
           details: "Site8-Gallery, RMIT, Melbourne",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240718182230.jpg",
           alt: "Entrance (2022)",
           title: "Install View (Back)",
           details: "Site8-Gallery, RMIT, Melbourne",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240718182314.jpg",
           alt: "Entrance (2022)",
           title: "Floating Fragments (2022)",
           details: "Watercolor on paper, 760 X 570mm",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240718182812.jpg",
           alt: "Entrance (2022)",
           title: "Floating Fragments (2022)",
           details: "Watercolor on paper, 760 X 570mm",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240715100406971.jpg",
           alt: "Entrance (2022)",
           title: "Floating Fragments (2022)",
           details: "Watercolor on paper, 760 X 570mm",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240715100407315.jpg",
           alt: "Entrance (2022)",
           title: "Floating Fragments (2022)",
           details: "Watercolor on paper, 760 X 570mm",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240715100407596.jpg",
           alt: "Entrance (2022)",
           title: "Floating Fragments (2022)",
           details: "Watercolor on paper, 760 X 570mm",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240715100407861.jpg",
           alt: "Entrance (2022)",
           title: "Floating Fragments (2022)",
           details: "Watercolor on paper, 760 X 570mm",
-          width: 600,
-          height: 900,
+
         },
         {
           src: "asset/20240715100408408.jpg",
           alt: "Entrance (2022)",
           title: "Floating Fragments (2022)",
           details: "Watercolor on paper, 760 X 570mm",
-          width: 600,
-          height: 900,
+
         },
       ];
+
 
       let currentImageIndex = 0;
       let currentZoom = 1;
@@ -411,79 +396,42 @@
       const lightboxDetails = document.getElementById("lightbox-details");
       const zoomIndicator = document.getElementById("zoom-indicator");
       const zoomLevelDisplay = document.getElementById("zoom-level");
-      const masonryGrid = document.getElementById("masonry-grid");
+      const galleryContainer = document.getElementById("gallery-container");
 
-      // Calculate the maximum width for thumbnails while maintaining aspect ratio
-      function calculateThumbnailSize(image, maxWidth) {
-        const aspectRatio = image.width / image.height;
-        const thumbnailWidth = Math.min(maxWidth, image.width);
-        const thumbnailHeight = thumbnailWidth / aspectRatio;
-
-        return {
-          width: thumbnailWidth,
-          height: thumbnailHeight,
-        };
-      }
-
-      // Create gallery items with proper sizing
+      // Create gallery items with natural sizes
       function createGalleryItems() {
-        // Determine the number of columns based on screen width
-        let numColumns;
-        const screenWidth = window.innerWidth;
-
-        if (screenWidth < 640) {
-          numColumns = 2; // Mobile: 2 columns
-        } else if (screenWidth < 1024) {
-          numColumns = 3; // Tablet: 3 columns
-        } else {
-          numColumns = 4; // Desktop: 4 columns
-        }
-
-        // Create column divs
-        for (let i = 0; i < numColumns; i++) {
-          const column = document.createElement("div");
-          column.className = "masonry-grid-column";
-          column.style.width = `${100 / numColumns}%`;
-          masonryGrid.appendChild(column);
-        }
-
-        const columns = document.querySelectorAll(".masonry-grid-column");
-        const maxThumbnailWidth = 300; // Maximum width for thumbnails
-
-        // Distribute images among columns
+        // Clear the container
+        galleryContainer.innerHTML = '';
+        
+        // Create gallery items
         galleryImages.forEach((image, index) => {
-          const thumbnail = calculateThumbnailSize(image, maxThumbnailWidth);
-
           const item = document.createElement("div");
           item.className = "gallery-item";
           item.onclick = () => openLightbox(index);
-
+          
           const img = document.createElement("img");
           img.src = image.src;
           img.alt = image.alt;
-          img.className = "w-full shadow-md";
-          img.style.width = `${thumbnail.width}px`;
-          img.style.height = `${thumbnail.height}px`;
-
+          img.className = "shadow-md";
+          
+          // Set a reasonable display size while maintaining aspect ratio
+          img.style.height = "400px"; // Fixed height
+          img.style.width = "auto"; // Width will adjust based on aspect ratio
+          
           item.appendChild(img);
-
-          // Add to the shortest column
-          const targetColumn = index % columns.length;
-          columns[targetColumn].appendChild(item);
+          galleryContainer.appendChild(item);
+          
+          // Load the image to get its natural dimensions
+          img.onload = function() {
+            // Store the natural dimensions for the lightbox
+            image.naturalWidth = this.naturalWidth;
+            image.naturalHeight = this.naturalHeight;
+          };
         });
       }
 
       // Initialize gallery
       document.addEventListener("DOMContentLoaded", function () {
-        createGalleryItems();
-      });
-
-      // Handle window resize
-      window.addEventListener("resize", function () {
-        // Clear existing gallery
-        masonryGrid.innerHTML = "";
-
-        // Recreate gallery with new column count
         createGalleryItems();
       });
 
@@ -596,6 +544,7 @@
         }
       });
     </script>
+
     <script>
       document.addEventListener("contextmenu", function (e) {
         if (e.target.tagName === "IMG") {
