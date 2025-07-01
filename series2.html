@@ -1,255 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inside Wombs - Xinzhi Li</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#333333",
-              secondary: "#666666",
-            },
-            fontFamily: {
-              playfair: ['"Playfair Display"', "serif"],
-              raleway: ["Raleway", "sans-serif"],
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inside Wombs - Xinzhi Li</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#333333",
+            secondary: "#666666",
+          },
+          fontFamily: {
+            playfair: ['"Playfair Display"', "serif"],
+            raleway: ["Raleway", "sans-serif"],
+            Roman: ['Roman', 'sans-serif'],
+            Bold: ['Bold', 'san-serif']
           },
         },
-      };
-    </script>
-    <style>
-      body {
-        font-family: "Raleway", sans-serif;
-        background-color: #ffffff;
-      }
-      .playfair {
-        font-family: "Playfair Display", serif;
-      }
+      },
+    };
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Roman';
+      src: url('fonts/Times New Roman.ttf') format('truetype');
+    }
 
-      /* Dropdown menu */
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
+    @font-face {
+      font-family: 'Raleway-m';
+      src: url('fonts/Raleway-Medium.ttf') format('truetype');
+    }
 
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        text-align: left;
-      }
+    @font-face {
+      font-family: 'Bold';
+      src: url('fonts/Rawline SemiBold.ttf') format('truetype');
+    }
 
-      .dropdown-content a {
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
+    body {
+      font-family: "Raleway", sans-serif;
+      background-color: #ffffff;
+    }
 
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
+    .playfair {
+      font-family: "Playfair Display", serif;
+    }
 
-      /* Gallery items */
-      .gallery-item {
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-        margin-bottom: 30px;
-        display: inline-block;
-        margin-right: 30px;
-        vertical-align: top;
-      }
+    /* Dropdown menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-      .gallery-item:hover {
-        opacity: 0.9;
-      }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      text-align: left;
+    }
 
-      /* Gallery container */
-      .gallery-container {
-        width: 100%;
-        text-align: center;
-      }
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-      /* Lightbox */
-      .lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-      .lightbox-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 80%;
-        display: flex;
-        justify-content: center;
-        overflow: hidden;
-      }
+    /* Gallery items */
+    .gallery-item {
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      margin-bottom: 30px;
+      display: inline-block;
+      margin-right: 30px;
+      vertical-align: top;
+    }
 
-      .lightbox-image {
-        max-width: 100%;
-        max-height: 80vh;
-        object-fit: contain;
-        transition: transform 0.2s ease;
-      }
+    .gallery-item:hover {
+      opacity: 0.9;
+    }
 
-      .lightbox-caption {
-        color: white;
-        text-align: center;
-        padding: 10px;
-        width: 100%;
-        max-width: 800px;
-      }
+    /* Gallery container */
+    .gallery-container {
+      width: 100%;
+      text-align: center;
+    }
 
-      .close-lightbox {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
-        z-index: 1010;
-      }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-      .prev-image,
-      .next-image {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
-        padding: 15px;
-        z-index: 1010;
-      }
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 80%;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-      .prev-image {
-        left: 20px;
-      }
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
 
-      .next-image {
-        right: 20px;
-      }
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      padding: 10px;
+      width: 100%;
+      max-width: 800px;
+    }
 
-      /* Zoom indicator */
-      .zoom-indicator {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 4px;
-        font-size: 14px;
-        z-index: 1010;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1010;
+    }
 
-      .zoom-indicator.visible {
-        opacity: 1;
-      }
-    </style>
-  </head>
-  <body class="min-h-screen flex flex-col">
-    <!-- Header/Navigation -->
-    <header class="py-4 px-6 md:px-12 border-b border-pink-700">
-      <nav class="flex justify-center">
-        <ul
-          class="flex space-x-8 md:space-x-12 font-raleway text-sm uppercase tracking-wider text-primary"
-        >
-          <li>
-            <a
-              href="index.html"
-              class="hover:text-pink-700 transition-colors duration-300"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="about.html"
-              class="hover:text-pink-700 transition-colors duration-300"
-              >About</a
-            >
-          </li>
-          <li class="dropdown">
-            <a href="gallery.html" class="font-medium flex items-center">
-              Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
-            </a>
-            <div class="dropdown-content">
-              <a
-                href="series1.html"
-                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
-                >Eyes (2021)</a
-              >
-              <a
-                href="series2.html"
-                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
-                >Inside Wombs (2021)</a
-              >
-              <a
-                href="series3.html"
-                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
-                >Entrance (2022)</a
-              >
-              <a
-                href="series4.html"
-                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
-                >Blackhole (2022)</a
-              >
-              <a
-                href="series5.html"
-                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
-                >With You (2022)</a
-              >
-              <a
-                href="series6.html"
-                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
-                >Transforming (2024)</a
-              >
-            </div>
-          </li>
-          <li>
-            <a
-              href="bio.html"
-              class="hover:text-pink-700 transition-colors duration-300"
-              >Bio</a
-            >
-          </li>
-          <li>
-            <a
-              href="contact.html"
-              class="hover:text-pink-700 transition-colors duration-300"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
+    .prev-image,
+    .next-image {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      padding: 15px;
+      z-index: 1010;
+    }
+
+    .prev-image {
+      left: 20px;
+    }
+
+    .next-image {
+      right: 20px;
+    }
+
+    /* Zoom indicator */
+    .zoom-indicator {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      z-index: 1010;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .zoom-indicator.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Header/Navigation -->
+  <header class="py-4 px-6 md:px-12 border-b border-pink-700">
+    <nav class="flex justify-center">
+      <ul class="flex space-x-8 md:space-x-12 font-Roman text-lg uppercase tracking-wider text-primary">
+        <li>
+          <a href="index.html" class="hover:text-pink-700 transition-colors duration-300">Home</a>
+        </li>
+        <li>
+          <a href="about.html" class="hover:text-pink-700 transition-colors duration-300">About</a>
+        </li>
+        <li class="dropdown">
+          <a href="gallery.html" class="font-medium flex items-center">
+            Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="dropdown-content font-Roman text-sm">
+            <a href="series1.html"
+              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Eyes
+              (2021)</a>
+            <a href="series2.html"
+              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Inside
+              Wombs (2021)</a>
+            <a href="series3.html"
+              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Entrance
+              (2022)</a>
+            <a href="series4.html"
+              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Blackhole
+              (2022)</a>
+            <a href="series5.html"
+              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">With You
+              (2022)</a>
+            <a href="series6.html"
+              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Transforming
+              (2024)</a>
+          </div>
+        </li>
+        <li>
+          <a href="bio.html" class="hover:text-pink-700 transition-colors duration-300">Bio</a>
+        </li>
+        <li>
+          <a href="contact.html" class="hover:text-pink-700 transition-colors duration-300">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
     <!-- Main Content -->
     <main class="flex-grow px-6 md:px-12 py-12">
