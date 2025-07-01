@@ -23,12 +23,29 @@
           fontFamily: {
             playfair: ['"Playfair Display"', "serif"],
             raleway: ["Raleway", "sans-serif"],
+            Roman: ['Roman', 'sans-serif'],
+            Bold: ['Bold', 'san-serif']
           },
         },
       },
     };
   </script>
   <style>
+    @font-face {
+      font-family: 'Roman';
+      src: url('fonts/Times New Roman.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Raleway-m';
+      src: url('fonts/Raleway-Medium.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Bold';
+      src: url('fonts/Rawline SemiBold.ttf') format('truetype');
+    }
+
     body {
       font-family: "Raleway", sans-serif;
       background-color: #ffffff;
@@ -50,7 +67,7 @@
       background-color: white;
       min-width: 200px;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-      z-index: 1;
+      z-index: 50;
       text-align: left;
     }
 
@@ -68,9 +85,9 @@
 
 <body class="min-h-screen flex flex-col">
   <!-- Header/Navigation -->
-  <header class="py-4 px-6 md:px-12 border-b border-gray-200">
+  <header class="py-4 px-6 md:px-12 border-b border-pink-700">
     <nav class="flex justify-center">
-      <ul class="flex space-x-8 md:space-x-12 font-raleway text-sm uppercase tracking-wider text-primary">
+      <ul class="flex space-x-8 md:space-x-12 font-Roman text-lg uppercase tracking-wider text-primary">
         <li>
           <a href="index.html" class="hover:text-pink-700 transition-colors duration-300">Home</a>
         </li>
@@ -81,7 +98,7 @@
           <a href="gallery.html" class="font-medium flex items-center">
             Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
           </a>
-          <div class="dropdown-content">
+          <div class="dropdown-content font-Roman text-xs">
             <a href="series1.html"
               class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Eyes
               (2021)</a>
