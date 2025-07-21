@@ -64,11 +64,32 @@
     .dropdown-content {
       display: none;
       position: absolute;
+      top: calc(100% + 14px);
+      /* keeps the visual gap */
+      left: 0;
       background-color: white;
-      min-width: 200px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+      min-width: 230px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
       z-index: 1;
       text-align: left;
+      pointer-events: auto;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown:hover::before {
+      display: block;
+    }
+
+    /* Bridge element to keep dropdown open on gap hover */
+    .dropdown::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 14px;
+      /* must match the visual gap */
+      width: 100%;
+      z-index: 2;
     }
 
     .dropdown-content a {
@@ -77,9 +98,6 @@
       display: block;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
 
     /* Gallery items */
     .gallery-item {
@@ -194,48 +212,80 @@
 <body class="min-h-screen flex flex-col">
   <!-- Header/Navigation -->
   <header class="py-4 px-6 md:px-12 border-b border-pink-700">
-    <nav class="flex justify-center">
-      <ul class="flex space-x-8 md:space-x-12 font-Roman text-lg uppercase tracking-wider text-primary">
-        <li>
-          <a href="index.html" class="hover:text-pink-700 transition-colors duration-300">Home</a>
-        </li>
-        <li>
-          <a href="about.html" class="hover:text-pink-700 transition-colors duration-300">About</a>
-        </li>
-        <li class="dropdown">
-          <a href="gallery.html" class="font-medium flex items-center">
-            Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </a>
-          <div class="dropdown-content font-Roman text-xs">
-            <a href="series1.html"
-              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Eyes
-              (2021)</a>
-            <a href="series2.html"
-              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Inside
-              Wombs (2021)</a>
-            <a href="series3.html"
-              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Entrance
-              (2022)</a>
-            <a href="series4.html"
-              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Blackhole
-              (2022)</a>
-            <a href="series5.html"
-              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">With You
-              (2022)</a>
-            <a href="series6.html"
-              class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200">Transforming
-              (2024)</a>
-          </div>
-        </li>
-        <li>
-          <a href="bio.html" class="hover:text-pink-700 transition-colors duration-300">Bio</a>
-        </li>
-        <li>
-          <a href="contact.html" class="hover:text-pink-700 transition-colors duration-300">Contact</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+      <nav class="flex justify-center">
+        <ul
+          class="flex space-x-8 md:space-x-12 font-Roman text-lg uppercase tracking-wider text-primary"
+        >
+          <li>
+            <a
+              href="index.html"
+              class="hover:text-pink-700 transition-colors duration-300"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="hover:text-pink-700 transition-colors duration-300"
+              >About</a
+            >
+          </li>
+          <li class="dropdown">
+            <a href="gallery.html" class="font-medium flex items-center">
+              Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </a>
+            <div
+              class="dropdown-content font-Roman text-[16px] normal-case font-[500] border-t-4 border-pink-700"
+            >
+              <a
+                href="series1.html"
+                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
+                >Eyes (2021)</a
+              >
+              <a
+                href="series2.html"
+                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
+                >Inside Wombs (2021)</a
+              >
+              <a
+                href="series3.html"
+                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
+                >Entrance (2022)</a
+              >
+              <a
+                href="series4.html"
+                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
+                >Blackhole (2022)</a
+              >
+              <a
+                href="series5.html"
+                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
+                >With You (2022)</a
+              >
+              <a
+                href="series6.html"
+                class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
+                >Transforming (2024)</a
+              >
+            </div>
+          </li>
+          <li>
+            <a
+              href="bio.html"
+              class="hover:text-pink-700 transition-colors duration-300"
+              >Bio</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="hover:text-pink-700 transition-colors duration-300"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
   <!-- Main Content -->
   <main class="flex-grow px-6 md:px-12 py-12">

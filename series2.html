@@ -58,31 +58,48 @@
         font-family: "Playfair Display", serif;
       }
 
-      /* Dropdown menu */
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
+    /* Dropdown menu */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-        text-align: left;
-      }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      /* keeps the visual gap */
+      left: 0;
+      background-color: white;
+      min-width: 230px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      text-align: left;
+      pointer-events: auto;
+    }
 
-      .dropdown-content a {
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
+    .dropdown:hover .dropdown-content,
+    .dropdown:hover::before {
+      display: block;
+    }
 
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
+    /* Bridge element to keep dropdown open on gap hover */
+    .dropdown::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 14px;
+      /* must match the visual gap */
+      width: 100%;
+      z-index: 2;
+    }
+
+    .dropdown-content a {
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
       /* Gallery items */
       .gallery-item {
@@ -219,7 +236,9 @@
             <a href="gallery.html" class="font-medium flex items-center">
               Works <i class="fas fa-chevron-down ml-1 text-xs"></i>
             </a>
-            <div class="dropdown-content font-Roman text-xs">
+            <div
+              class="dropdown-content font-Roman text-[16px] normal-case font-[500] border-t-4 border-pink-700"
+            >
               <a
                 href="series1.html"
                 class="text-primary hover:text-pink-700 transition-colors duration-300 border-b border-gray-200"
@@ -269,7 +288,6 @@
         </ul>
       </nav>
     </header>
-
     <!-- Main Content -->
     <main class="flex-grow px-6 md:px-12 py-12">
       <h1
